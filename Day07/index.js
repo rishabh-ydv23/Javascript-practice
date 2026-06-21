@@ -26,7 +26,7 @@ let num1 = 23.1;
 console.log(Math.floor(num1));
 console.log(Math.ceil(num1));
 
-// console.log(Math.floor(Math.random()*10));
+console.log(Math.floor(Math.random()*10));
 // 0<=value<1
 // 0-9
 
