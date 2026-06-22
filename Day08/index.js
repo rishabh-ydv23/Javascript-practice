@@ -74,7 +74,7 @@ let arr3 = arr1.concat(arr2,arr4);
 console.log(arr3);
 console.log(arr3[6]);
 arr1.push(arr4);
-conosle.log(arr1);
+console.log(arr1);
 console.log(arr1[2][0]);
 
 // 2d array
@@ -91,6 +91,6 @@ console.log(newarr);
 let abc = [2,1,4,1];
 console.log(Array.isArray(abc));
 
-// let ac = new Array(10);
-// console.log(ac.length);
+let ac = new Array(10);
+console.log(ac.length);
 
