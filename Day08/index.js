@@ -1,12 +1,16 @@
-// const arr = [2,35,1,8,9,"rohit",true,8];
-// console.log(arr[1]);
-// console.log(arr.at(-2));
+const arr = [2,35,1,8,9,"rohit",true,8];
+console.log(arr[1]);
+console.log(arr.at(-2));
+// -1 → last element      → 8
+// -2 → second last       → true
+// -3 → third last        → "rohit"
+
 // // at is latest, negative index le leta hai
 // console.log(arr.length);
 // // length
 // // helpful
-// const newarr = structuredClone(arr);
-// console.log(newarr==arr);
+const newarr = structuredClone(arr);
+console.log(newarr==arr);
 
 // push, add element at end
 
@@ -32,7 +36,7 @@
 // console.log(arr);
 
 // // delete operation
-// // [hole,2,35,1,8,9,"rohit"];
+// [hole,2,35,1,8,9,"rohit"];
 // delete arr[0];
 // console.log(arr);
 
@@ -42,16 +46,19 @@
 // console.log(arr.includes(10));
 
 // slice
-// console.log(arr);
-// let a = arr.slice(2,5);
-// console.log(a);
-// console.log(arr);
+console.log(arr);
+const arr = [2,35,1,8,9,"rohit",true,8];
+let a = arr.slice(2,5);
+console.log(a);
+console.log(arr);
 
 // splice
-// console.log(arr);
-// let newsplice = arr.splice(2,5);
-// console.log(newsplice);
-// console.log(arr);
+
+const arr = [2,35,1,8,9,"rohit",true,8];
+console.log(arr);
+let newsplice = arr.splice(2,5);
+console.log(newsplice);
+console.log(arr);
 // splice(starting_index,total_element_delete,add value)
 // arr.splice(2,0,"money",90);
 // console.log(arr);
@@ -60,13 +67,15 @@
 
 
 // concat
-// let arr1 = [2,35];
-// let arr2 = [5,12];
-// let arr4 = [23,432,1123,31];
-// let arr3 = arr1.concat(arr2,arr4);
-// console.log(arr3[6]);
-// arr1.push(arr4);
-// console.log(arr1[2][0]);
+let arr1 = [2,35];
+let arr2 = [5,12];
+let arr4 = [23,432,1123,31];
+let arr3 = arr1.concat(arr2,arr4);
+console.log(arr3);
+console.log(arr3[6]);
+arr1.push(arr4);
+conosle.log(arr1);
+console.log(arr1[2][0]);
 
 // 2d array
 let arr = [1,2,3,4,5,6,7,8,9];

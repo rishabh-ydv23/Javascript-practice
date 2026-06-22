@@ -220,3 +220,95 @@ console.log(Math.floor(Math.random()*(max-min+1)+min));
 // Ludo
 // 1-6
 console.log(Math.floor(Math.random()*(6-1+1)+1));
+
+
+const arr = [2,35,1,8,9,"rohit",true,8];
+console.log(arr.length);
+console.log(arr[1]);
+console.log(arr.at(-2));
+// -1 → last element      → 8
+// -2 → second last       → true
+// -3 → third last        → "rohit"
+
+
+const arr = [2,35,1,8,9,"rohit",true,8];
+const newarr = structuredClone(arr);
+console.log(newarr == arr); // false, because structuredClone creates a deep copy of the array, so newarr and arr are two different objects in memory.
+// Dono arrays ka content same hai, lekin dono alag memory locations par hain.
+// == aur === arrays ke liye content compare nahi karte, balki reference (address) compare karte hain.
+
+
+const a = [1,2,3];
+const b = a;
+console.log(a == b); // true, because both a and b point to the same array in memory.
+// Yahan b ne a ka reference copy kiya hai:
+
+
+arr.push(50);
+arr.pop();
+
+
+// unshift , add element at start
+arr.unshift(10);
+
+// // shift, delete element from start
+arr.shift();
+
+
+const arr = [2,35,1,8,9,"rohit",true,8,11,12,14,15,16,17,1,19,20];
+console.log(arr.indexOf(8))
+console.log(arr.lastIndexOf(8));    // 7 -> lekin index start se he start hoga ,because lastIndexOf searches from the end of the array and returns the index of the last occurrence of the specified element.
+console.log(arr.includes(10));
+
+
+const arr = [2,35,1,8,9,"rohit",true,8];
+let a = arr.slice(2,5);
+console.log(a);         // [1, 8, 9] → slice(start_index, end_index) → end_index is not included in the new array.
+console.log(arr);
+
+
+//splice
+const arr = [2,35,1,8,9,"rohit",true,8];
+console.log(arr);
+// let newsplice = arr.splice(2,5);  // splice(starting_index,total_element_delete,add value) → starting_index is the index from where to start deleting elements, total_element_delete is the number of elements to delete, and add value is optional, if provided, it will be added at the starting_index after deletion.
+let newsplice = arr.splice(2,5,0);  // splice(starting_index,total_element_delete,add value) → starting_index is the index from where to start deleting elements, total_element_delete is the number of elements to delete, and add value is optional, if provided, it will be added at the starting_index after deletion.
+console.log(newsplice);         //output: [ 1, 8, 9, 'rohit', true ] → because we deleted 5 elements starting from index 2, which are [1, 8, 9, "rohit", true].
+console.log(arr);               // output: [ 2, 35, true, 8 ] → because we deleted 5 elements starting from index 2, which are [1, 8, 9, "rohit", true], and the remaining elements are [2, 35, true, 8].
+
+
+const arr = [2,35,1,8,9,"rohit",true,8];
+arr.splice(2,0,"money",90);     // splice(starting_index,total_element_delete,add value) → starting_index is the index from where to start deleting elements, total_element_delete is the number of elements to delete, and add value is optional, if provided, it will be added at the starting_index after deletion.
+console.log(arr);
+console.log(arr.toString());    // output: 2,35,money,90,true,8 → because we added "money" and 90 at index 2, and the remaining elements are [2, 35, true, 8].
+console.log(arr.join("*"));     // output: 2*35*money*90*true*8 → because we joined the elements of the array with "*" as the separator.
+
+
+
+// concat
+let arr1 = [2,35];
+let arr2 = [5,12];
+let arr4 = [23,432,1123,31];
+let arr3 = arr1.concat(arr2,arr4);
+console.log(arr3);
+console.log(arr3[6]);
+arr1.push(arr4);
+console.log(arr1);
+console.log(arr1[2][0]);
+
+
+let arr = [1,2,3,4,5,6,7,8,9];
+let arr2d = [[1,2,3,[23,432,123,[331,123,123]]],[4,5,6],[7,8,9]];
+// flat ka use to convert into 1d array
+let newarr = arr2d.flat(3);
+// [1,2,3]
+// [4,5,6]
+// [7,8,9]
+console.log(newarr);
+
+
+let abc = [2,1,4,1];
+console.log(Array.isArray(abc));
+
+let ac = new Array(10);
+console.log(ac.length);
+
