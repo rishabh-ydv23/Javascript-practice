@@ -130,3 +130,72 @@ const obj4=Object.assign({},obj1,obj2);   //it will copy the properties of obj1 
                     //first parameter is target object and rest are source objects
 console.log(obj4);
 console.log(obj1);      //{ a: 1, b: 2, c: 3, d: 4 }   //obj1 is not modified
+
+
+
+//same can be done by using spread operator
+const obj5={...obj1,...obj2};   //it will copy the properties of obj1 and obj2 to a new object and return the new object
+console.log(obj5);
+
+
+
+let obj1 = {
+    a:1, 
+    b:2
+}
+
+let obj2 = obj1;
+// shallow copy -> shallow copy me sirf reference copy hota hai, agar hum obj2 me koi property change karte hai to obj1 me bhi change ho jata hai.
+obj2.a=10;
+console.log(obj2, obj1);
+
+//structureClone method hota hai jo ki deep copy karta hai, deep copy me reference copy nahi hota hai, agar hum obj3 me koi property change 
+    // karte hai to obj1 me change nahi hota hai.
+     
+//deep copy -> deep copy me reference copy nahi hota hai, agar hum obj3 me koi property change karte hai to obj1 me change nahi hota hai.// //  deep copy 
+let obj3 = structuredClone(obj1);
+obj3.a = 20;
+console.log(obj3, obj1);
+
+ 
+
+//  Nested object
+const user = {
+    name:"Rohit",
+    balance: 420,
+    address: {
+        pincode: 246149,
+        city: "kotdwar"
+    }
+}
+console.log(user.address.pincode);
+
+const user2 = Object.assign({},user);
+console.log(user2);
+user2.address.pincode = 321314;         // address nested object hai isliye reference copy ho gaya hai, isliye user2 me address change karne par user me bhi change ho gaya.
+console.log(user.address.pincode);
+
+user2.name = "Mohit";
+console.log(user.name);
+
+//yha ye hua ke nested object me reference copy ho gaya hai, isliye user2 me address change karne par user me bhi change ho gaya. --shallow copy
+// but name property me value copy ho gaya hai isliye user2 me name change karne par user me change nahi hua.   -- deep copy
+
+//deep copy sirf non nested wale key value pair me hota hai, nested object me reference copy hota hai. isliye agar hume nested object me deep copy karna hai to hume structuredClone() method ka use karna padega.
+
+
+//  Destructuring of an object yha hum object ke properties ko alag alag variable me assign kar sakte hai.
+let obj = {
+    name: "Rohit",
+    money: 430,
+    balance: 30,
+    age: 20,
+    aadhar: "hfdsiohsai"
+};
+
+const {name, balance, age} = obj;   //yha humne obj ke name, balance, age properties ko alag alag variable me assign kar diya.
+console .log(name, balance, age);
+
+const {name:full_name , balance: amount, age:Umar} = obj;
+console.log(full_name, amount, Umar);   //yha humne obj ke name, balance, age properties ko alag alag variable me assign kar diya aur unka naam change kar diya.
+//ab hum console.log(name) nahi kar sakte hai kyuki name variable ka naam change ho gaya hai full_name me, isliye hum console.log(full_name) karenge.
