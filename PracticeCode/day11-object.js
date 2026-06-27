@@ -199,3 +199,118 @@ console .log(name, balance, age);
 const {name:full_name , balance: amount, age:Umar} = obj;
 console.log(full_name, amount, Umar);   //yha humne obj ke name, balance, age properties ko alag alag variable me assign kar diya aur unka naam change kar diya.
 //ab hum console.log(name) nahi kar sakte hai kyuki name variable ka naam change ho gaya hai full_name me, isliye hum console.log(full_name) karenge.
+
+
+const {name, age,...obj1} = obj;   //yha humne obj ke name, age properties ko alag alag variable me assign kar diya aur baki properties ko obj1 me assign kar diya.
+console.log(obj1);   //yha obj1 me baki properties money, balance, aadhar assign ho gayi hai.  { money: 430, balance: 30, aadhar: 'hfdsiohsai' }
+
+
+
+
+// ****************************ARRAY DESTRUCTURING*******************************
+const arr = [3,2,1,5,10];
+// const [first,second] = arr;
+// COnsole.log(first, second);   //yha humne arr ke first, second elements ko alag alag variable me assign kar diya.
+
+const [first,second, ,third] = arr;   //yha humne arr ke first, second, fourth elements ko alag alag variable me assign kar diya.
+console.log(first, second, third);   //yha humne arr ke first, second, fourth elements ko alag alag variable me assign kar diya.
+
+const [first,second,...third] = arr;   //yha humne arr ke first, second elements ko alag alag variable me assign kar diya aur baki elements ko third me assign kar diya.
+console.log(first,second, third);   //yha third me baki elements 1,5,10 assign ho gayi hai.  [ 1, 5, 10 ]
+
+
+
+
+// ****************************Nested DESTRUCTURING*******************************
+let obj = {
+        name: "Rohit",
+        age: 20,
+        arr: [90,40,60,80],
+        address: {
+            pincode:246149,
+            city:"Kotdwar",
+            state: "uk"
+        }
+};
+
+
+const {address:{pincode, city}} = obj;
+console.log(pincode, city);   //yha humne obj ke address object ke pincode, city properties ko alag alag variable me assign kar diya.
+const {arr: [first]} = obj;
+console.log(first);
+
+
+let user={
+    name:"Rishabh",
+    age:21,
+    college:"LPU",
+     School:"USIS", 
+     greet:function(){
+        console.log("Hello");
+     },
+     meet:function(){
+        return 20;
+     }
+};
+
+user.greet();
+console.log(user.greet());   //yha humne user object ke greet method ko call kiya aur uska return value console me print kiya.  undefined
+const meetValue = user.meet();   //yha humne user object ke meet method ko call kiya aur uska return value meetValue variable me assign kiya.
+console.log(meetValue);   //yha humne meetValue variable ka value console me print kiya.  20
+
+
+
+
+// array is a collection of similar data type 
+//array object hota hai jisme index hota hai jo ki number hota hai aur value hoti hai jo ki kisi bhi data type ka ho sakta hai.
+
+const a=[1,2,3,4,5,6,7,8,9,10];
+console.log(a.__proto__);   //yha humne a array ke prototype ko console me print kiya.  Array.prototype
+
+
+let user1 = {
+    name: "Rohit",
+    age: 20,
+}
+
+let user2 = {
+    amount:20,
+    money:50
+}
+
+//Prototype chaining me hum ek object ke prototype ko dusre object ke prototype se set karte hai. isse hum ek object ke properties ko dusre object 
+    //  me access kar sakte hai.  user2 object me name aur age properties nahi hai lekin user1 object me hai isliye user2 object me name aur age properties access kar sakte hai.
+
+
+
+// console.log(user2.address); //ye undefined return karega kyuki user2 object me address property nahi hai.
+user2.__proto__ = user1;   //yha humne user2 object ke prototype ko user1 object ke prototype se set kiya.  
+     // isse user2 object ne user 1 object ke properties ko inherit kar liya.  user2 object me name aur age properties nahi hai lekin user1 object me hai isliye user2 object me name aur age properties access kar sakte hai.
+
+
+
+
+//agar array hai humare paas to uska prototype hum array.prototype se access kar sakte hai aur uska prototype object.
+// yha par arr ek arr=[[10,20,30,40]] hai to uska prototype array.
+//aur Array.prototype ka prototype object hai Object.prototype aur Object.prototype ka prototype null hai.
+// arr.__proto__ == Array.prototype   //true
+
+
+
+
+
+//Array.prototype ke andar kuch methods hote hai jaise push, pop, shift, unshift, slice, splice, map, filter, reduce etc. jo ki array ke liye use hote hai. aur Object.prototype ke andar kuch methods hote hai jaise hasOwnProperty, toString, valueOf etc. jo ki object ke liye use hote hai.
+
+
+//to jab hum likhte hai arr.__proto__ ye Array.prototype se he inherit karte hai 
+
+
+// arr.__proto__proto  == Object.prototype
+
+
+
+
+let arr = [10,20,30,40];
+console.log(arr.__proto__== Array.prototype)
+console.log(arr.__proto__.__proto__== Object.prototype)
+console.log(arr.__proto__.__proto__.__proto__== null)
