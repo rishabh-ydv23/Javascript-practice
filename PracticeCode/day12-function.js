@@ -93,3 +93,46 @@ func(obj);
 const {name , amount} = obj;
 console.log(name,amount);
 
+// jab hum string ko new keyword se create karte hain to wo string object ban jata hai. aur jab hum string ko directly create karte hain to wo 
+    //  string primitive ban jata hai.
+
+// Function._prototype_ is a property of the Function constructor that allows you to add methods and properties to all functions in JavaScript.
+
+// fun.__proto__  == Function.prototype  //ye dono same hai. ye dono function ke prototype ko point karte hain. 
+//                  aur ye dono function ke prototype me methods aur properties ko add karne ke liye use hote hain.
+
+// fun.__proto__.__proto__ == Object.prototype  //ye dono same hai. ye dono object ke prototype ko point karte hain.
+
+// fun.__proto__.__proto__.__proto__ == null  //ye null hai. ye isliye hai kyuki Object.prototype ke prototype me koi aur prototype nahi hai.
+
+
+// Heap ke andar ka memory allocation object ke liye hota hai aur stack ke andar ka memory allocation function ke liye hota hai.
+// heap me memory allocation dynamic hota hai aur stack me memory allocation static hota hai.
+// 
+
+
+
+
+// changin prottype of object 
+
+let obj = {
+    name: "Rohit",
+    age:30,
+    amount:420,
+}
+
+let obj2 = {
+    name: "Rishabh",
+    age:25,
+    amount:500,
+}
+
+obj2.__proto__ = obj;  //ye obj2 ke prototype ko obj ke prototype se point kar raha hai. aur ab obj2 ke andar name, age, amount properties nahi hai to ye obj ke andar se le lega.
+console.log(obj2.name);
+//  this is costly used in javascript to implement inheritance.
+
+
+// inplace of this use  this 
+obj2=Object.create(obj);  //ye obj2 ke prototype ko obj ke prototype se point kar raha hai. aur ab obj2 ke andar name, age, amount properties nahi hai to ye obj ke andar se le lega.
+console.log(obj2.name);
+
