@@ -182,3 +182,8 @@ const a=Object.keys(obj);
 for(let i=0;i<a.length;i++){
     console.log(obj[a[i]]);   //ye obj ke andar ke values ko print karega.
 }
+
+
+
+
+
